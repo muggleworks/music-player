@@ -8,6 +8,10 @@ body {
 	display: flex;
 	height: 100vh;
 	background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .wave {
@@ -67,8 +71,6 @@ body {
 
 .container {
 	width: 100%;
-	display: flex;
-	justify-content: center;
 }
 
 /* Section 1 */
@@ -96,4 +98,52 @@ body {
 	color: rgba(255, 255, 255, 0.7);
 	font-size: 14px;
 	font-weight: 400;
+}
+
+/* Section 2 */
+.music-controls {
+	/* margin-top: 16px; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.music-controls .progress {
+	height: 4px;
+	border-radius: 2px;
+	width: 100%;
+	max-width: 240px;
+	background-color: rgba(255, 255, 255, 0.4);
+	margin-top 16px;
+}
+
+.music-controls .progress .bar {
+	height: 100%;
+	width: 50%;
+	background-color: white;
+	border-radius: 2px;
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.action-icon {
+	width: 30px;
+	height: 30px;
+	margin: 0 8px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.action-icon:hover {
+	transform: scale(1.1);
+}
+
+.actions .big {
+	width: 40px;
+	height: 40px;
 }
