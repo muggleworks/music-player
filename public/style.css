@@ -27,11 +27,13 @@ body {
 	width: 10px;
 	border-radius: 50px;
 	margin: 0 5px;
-	transition: 0.3s;
+	transition: 1s;
+	animation: animate 1.2s linear infinite;
+	animation-play-state: paused;
 }
 
 .wave.animate span {
-	animation: animate 1.2s linear infinite;
+	animation-play-state: running;
 }
 
 @keyframes animate {
@@ -107,6 +109,7 @@ body {
 .duration {
 	height: 12px;
 	color: rgba(255, 255, 255, 0.7);
+	margin-top: 12px;
 }
 
 /* Section 2 */
