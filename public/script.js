@@ -1,6 +1,5 @@
 var audio = new Audio();
 audio.src = 'songs/' + "Coldplay - Youre A Sky Full Of Stars" + '.mp3';
-var duration = audio.duration;
 
 function updateCurrentTime() {
     var currentTime = Math.floor(audio.currentTime);
@@ -12,6 +11,11 @@ function updateCurrentTime() {
         seconds = "0" + seconds;
     }
     document.getElementById('duration').innerHTML = `${minutes}:${seconds}`;
+
+    // update progress bar
+    var progressBar = document.getElementById('progress-bar');
+    var progress = (currentTime / audio.duration) * 100;
+    progressBar.style.width = `${progress}%`;
 }
 setInterval(updateCurrentTime, 1000);
 

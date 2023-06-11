@@ -68,7 +68,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	filter: blur(50px);
+	filter: blur(40px);
 }
 
 .background .wave {
@@ -124,6 +124,7 @@ body {
 	height: 4px;
 	border-radius: 2px;
 	width: 100%;
+	overflow: hidden;
 	max-width: 240px;
 	background-color: rgba(255, 255, 255, 0.4);
 	margin-top: 16px;
@@ -131,9 +132,8 @@ body {
 
 .music-controls .progress .bar {
 	height: 100%;
-	width: 50%;
+	width: 0%;
 	background-color: white;
-	border-radius: 2px;
 }
 
 .actions {
