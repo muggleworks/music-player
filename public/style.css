@@ -27,6 +27,10 @@ body {
 	width: 10px;
 	border-radius: 50px;
 	margin: 0 5px;
+	transition: 0.3s;
+}
+
+.wave.animate span {
 	animation: animate 1.2s linear infinite;
 }
 
@@ -98,6 +102,11 @@ body {
 	color: rgba(255, 255, 255, 0.7);
 	font-size: 14px;
 	font-weight: 400;
+}
+
+.duration {
+	height: 12px;
+	color: rgba(255, 255, 255, 0.7);
 }
 
 /* Section 2 */

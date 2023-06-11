@@ -16,7 +16,7 @@
 
 <body>
 	<div class="background">
-		<div class="wave">
+		<div class="wave" id="wave">
 			<span></span>
 			<span></span>
 			<span></span>
@@ -32,6 +32,7 @@
 			<img class="album-art" src="images/album-art-placeholder.png" alt="Album Art"/>
 			<h1 class="song-title">Human</h1>
 			<h2 class="artist">Ajay Sivan</h2>
+			<p class="duration" id="duration"></p>
 		</section>
 		<section class="music-controls">
 			<div class="progress">
@@ -39,7 +40,7 @@
 			</div>
 			<div class="actions">
 				<img class="action-icon" src="./icons/previous.png" alt="Previous Song"/>
-				<img class="action-icon big" src="./icons/play.png" alt="Play/Pause" onclick="playSong()"/>
+				<img id="play-icon" class="action-icon big" src="./icons/play.png" alt="Play/Pause" onclick="playSong()"/>
 				<img class="action-icon" src="./icons/next.png" alt="Next Song"/>
 			</div>
 		</section>
