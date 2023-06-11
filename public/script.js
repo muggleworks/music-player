@@ -83,17 +83,23 @@ function playSong() {
 
 
 function previousSong() {
-    currentSongIndex--;
+    currentSongIndex = Math.abs((currentSongIndex - 1) % songs.length);
+    const wasPlaying = !audio.paused;
     audio.src = getSongPath(songs[currentSongIndex]);
-    audio.play();
+    if (wasPlaying) {
+        playSong();
+    }
     changeAlbumArt();
     setSongTitle();
 }
 
 function nextSong() {
-    currentSongIndex++;
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    const wasPlaying = !audio.paused;
     audio.src = getSongPath(songs[currentSongIndex]);
-    audio.play();
+    if (wasPlaying) {
+        playSong();
+    }
     changeAlbumArt();
     setSongTitle();
 }
