@@ -1,15 +1,16 @@
+// List of songs
 var songs = [
-    "a-ha - Take On Me.mp3",
-    "Backstreet Boys - I Want It That Way.mp3",
-    "Coldplay - A Sky Full Of Stars.mp3",
-    "Coldplay - Paradise.mp3",
-    "Katy Perry - Firework.mp3",
-    "Pharrell Williams - Happy.mp3",
+    "a-ha - Take On Me",
+    "Backstreet Boys - I Want It That Way",
+    "Coldplay - A Sky Full Of Stars",
+    "Coldplay - Paradise",
+    "Katy Perry - Firework",
+    "Pharrell Williams - Happy",
 ];
 var currentSongIndex = 0;
 
 function getSongPath(name) {
-    return 'songs/' + name;
+    return 'songs/' + name + '.mp3';
 }
 
 function changeAlbumArt() {
@@ -17,7 +18,6 @@ function changeAlbumArt() {
     var random = Math.floor(Math.random() * 5) + 1;
     albumArt.src = "images/album-art" + random + ".png";
 }
-
 changeAlbumArt();
 
 function setSongTitle() {
@@ -32,8 +32,6 @@ setSongTitle();
 
 function updateCurrentTime() {
     var currentTime = Math.floor(audio.currentTime);
-    // document.getElementById('duration').innerHTML = `00:${currentTime}`;
-    // format current time to mm:ss
     var minutes = Math.floor(currentTime / 60);
     var seconds = currentTime - minutes * 60;
     if (seconds < 10) {
@@ -51,9 +49,9 @@ setInterval(updateCurrentTime, 1000);
 function togglePlayIcon() {
     var playIcon = document.getElementById('play-icon');
     if (audio.paused) {
-        playIcon.src = "icons/pause.png";
-    } else {
         playIcon.src = "icons/play.png";
+    } else {
+        playIcon.src = "icons/pause.png";
     }
 }
 
@@ -65,7 +63,7 @@ function togglePlayOrPause() {
     }
 }
 
-function togglebackgroundAnimation() {
+function toggleBackgroundAnimation() {
     var background = document.getElementById('wave');
     if (audio.paused) {
         background.classList.remove('animate');
@@ -74,18 +72,17 @@ function togglebackgroundAnimation() {
     }
 }
 
-// obtain an mp3 file from the songs folder and play it
 function playSong() {
-    togglePlayIcon();
     togglePlayOrPause();
-    togglebackgroundAnimation();
+    togglePlayIcon();
+    toggleBackgroundAnimation();
 }
 
-
 function previousSong() {
-    currentSongIndex = Math.abs((currentSongIndex - 1) % songs.length);
-    const wasPlaying = !audio.paused;
+    currentSongIndex = (currentSongIndex === 0) ? (songs.length - 1) : (currentSongIndex - 1);
     audio.src = getSongPath(songs[currentSongIndex]);
+    
+    const wasPlaying = !audio.paused;
     if (wasPlaying) {
         playSong();
     }
@@ -95,8 +92,9 @@ function previousSong() {
 
 function nextSong() {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
-    const wasPlaying = !audio.paused;
     audio.src = getSongPath(songs[currentSongIndex]);
+
+    const wasPlaying = !audio.paused;
     if (wasPlaying) {
         playSong();
     }

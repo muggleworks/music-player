@@ -1,49 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Music Player</title>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./style.css"/>
-	<title>Music Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,700;1,500&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <!-- WAVE -->
+    <div class="background">
+      <div class="wave" id="wave">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 
-<body>
-	<div class="background">
-		<div class="wave" id="wave">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
+    <main>
+      <!-- ALBUM ART, TITLE, DURATION -->
+      <section>
+        <img
+          id="albumArt"
+          class="album-art"
+          src="images/album-art1.png"
+          alt="Album Art"
+        />
+        <h1 class="song-title" id="songTitle">Human</h1>
+      </section>
 
-	<main class="container">
-		<section class="music-details">
-			<img id="albumArt" class="album-art" src="images/album-art1.png" alt="Album Art"/>
-			<h1 class="song-title" id="songTitle">Human</h1>
-			<p class="duration" id="duration">0:00</p>
-		</section>
-		<section class="music-controls">
-			<div class="progress">
-				<div id="progress-bar" class="bar"></div>
-			</div>
-			<div class="actions">
-				<img class="action-icon" src="./icons/previous.png" alt="Previous Song" onclick="previousSong()"/>
-				<img id="play-icon" class="action-icon big" src="./icons/play.png" alt="Play/Pause" onclick="playSong()"/>
-				<img class="action-icon" src="./icons/next.png" alt="Next Song" onclick="nextSong()"/>
-			</div>
-		</section>
-	</main>
+	  <!-- DURATION, PROGRESS BAR -->
+      <section>
+        <p class="duration" id="duration">0:00</p>
+        <div class="progress">
+          <div id="progress-bar" class="bar"></div>
+        </div>
+      </section>
 
-	<script src="./script.js"></script>
-</body>
+	  <!-- PREVIOUS, PLAY, NEXT -->
+      <section class="actions">
+        <img
+          class="action-icon"
+          src="./icons/previous.png"
+          alt="Previous Song"
+          onclick="previousSong()"
+        />
+        <img
+          id="play-icon"
+          class="action-icon big"
+          src="./icons/play.png"
+          alt="Play/Pause"
+          onclick="playSong()"
+        />
+        <img
+          class="action-icon"
+          src="./icons/next.png"
+          alt="Next Song"
+          onclick="nextSong()"
+        />
+      </section>
+    </main>
 
+    <script src="./script.js"></script>
+  </body>
 </html>
