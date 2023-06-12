@@ -7,7 +7,7 @@ var songs = [
     "Katy Perry - Firework",
     "Pharrell Williams - Happy",
 ];
-var currentSongIndex = 0;
+var currentSongPosition = 0;
 
 function getSongPath(name) {
     return 'songs/' + name + '.mp3';
@@ -22,11 +22,11 @@ changeAlbumArt();
 
 function setSongTitle() {
     var songTitle = document.getElementById('songTitle');
-    songTitle.innerHTML = songs[currentSongIndex];
+    songTitle.innerHTML = songs[currentSongPosition];
 }
 
 var audio = new Audio();
-audio.src = getSongPath(songs[currentSongIndex]);
+audio.src = getSongPath(songs[currentSongPosition]);
 setSongTitle();
 
 
@@ -79,10 +79,10 @@ function playSong() {
 }
 
 function previousSong() {
-    currentSongIndex = (currentSongIndex === 0) ? (songs.length - 1) : (currentSongIndex - 1);
-    audio.src = getSongPath(songs[currentSongIndex]);
-    
+    currentSongPosition = (currentSongPosition === 0) ? (songs.length - 1) : (currentSongPosition - 1);
     const wasPlaying = !audio.paused;
+    audio.src = getSongPath(songs[currentSongPosition]);
+    
     if (wasPlaying) {
         playSong();
     }
@@ -91,10 +91,10 @@ function previousSong() {
 }
 
 function nextSong() {
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
-    audio.src = getSongPath(songs[currentSongIndex]);
-
+    currentSongPosition = (currentSongPosition + 1) % songs.length;
     const wasPlaying = !audio.paused;
+    audio.src = getSongPath(songs[currentSongPosition]);
+
     if (wasPlaying) {
         playSong();
     }

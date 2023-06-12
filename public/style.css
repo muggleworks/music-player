@@ -84,13 +84,13 @@ section {
 	overflow: hidden;
 }
 
+/* Section 2 */
 .duration {
 	height: 12px;
 	color: rgba(255, 255, 255, 0.7);
 	margin-top: 12px;
 }
 
-/* Section 2 */
 .progress {
 	margin-top: 16px;
 	height: 4px;
